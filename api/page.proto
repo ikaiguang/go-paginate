@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option go_package = "github.com/ikaiguang/go-paginate/api;paginatepb";
+
+package paginatepb;
+
+// PageRequest 分页请求
+message PageRequest {
+  // page 第几页；默认第一页
+  uint32 page = 100;
+  // page_size 一页显示的数据条数
+  uint32 page_size = 101;
+
+  // order_by_array 排序；例：["id,desc", "created_at,asc"]
+  repeated string order_by_array = 200;
+}
+
+// PageInfo 分页信息
+message PageInfo {
+
+  // total_number 总条数
+  int64 total_number = 100;
+  // total_page 总页数
+  int64 total_page = 101;
+  // page 第几页
+  uint32 page = 102;
+  // page_size 一页显示的数据条数
+  uint32 page_size = 103;
+}
